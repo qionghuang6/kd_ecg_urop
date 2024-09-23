@@ -1,0 +1,31 @@
+{
+  "path": "config/",
+  "datasets": [
+    "PTB-XL"
+  ],
+  "fine_tune_datasets": [
+    "Chapman-FT"
+  ],
+  "validation_datasets": [
+    "PTB-XL"
+  ],
+  "test_datasets": [
+    "PTB-XL"
+  ],
+  "leads": [
+    "I",
+    "II",
+    "III",
+    "aVR",
+    "aVL",
+    "aVF",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6"
+  ],
+  "chunk_length": 7500,
+  "chunk_stride": 5000
+}

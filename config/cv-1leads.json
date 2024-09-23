@@ -1,0 +1,20 @@
+{
+  "path": "config/",
+  "datasets": [
+    "PTB-XL"
+  ],
+  "fine_tune_datasets": [
+    "PTB-XL"
+  ],
+  "validation_datasets": [
+    "PTB-XL"
+  ],
+  "test_datasets": [
+    "PTB-XL"
+  ],
+  "leads": [
+    "I"
+  ],
+  "chunk_length": 7500,
+  "chunk_stride": 5000
+}

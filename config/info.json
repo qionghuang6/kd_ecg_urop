@@ -1,0 +1,13 @@
+{
+    "num_channels": 12,
+    "scored_classes": [
+        "tier1",
+        "tier2",
+        "tier3"
+    ],
+    "equivalent_classes": {},
+    "normal_class": "426783006",
+    "datasets": [
+        "PTB-XL"
+    ]
+}
