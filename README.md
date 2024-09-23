@@ -1,5 +1,7 @@
 # ECG UROP Code
 
+<img width="790" alt="image" src="https://github.com/user-attachments/assets/49763466-e507-437e-93cc-afac62169cb1">
+
 The project uses the PTBXL dataset, which is a large, publicly available electrocardiography dataset. You can untar the WFDB_PTBXL.tar.gz file to obtain the dataset. The data is stored in the `WFDB_PTBXL/` directory (which is gitignored).
 
 ## Model Architecture
@@ -56,7 +58,7 @@ To reproduce the results from our previous experiments, follow these steps:
    ```
    python train_model.py WFDB_PTBXL new_model 42 0.05 2 splits/split_0.json 0
    ```
-   This trains a model using lead I with KD, using an alpha value of 0.05 and 2 KL layers.
+   This trains a model using lead I with KD, using an alpha value of 0.05 and applying KD on the last 2 ResBlock layers.
 
 
 ## Analyzing Results
@@ -71,17 +73,12 @@ To compare the results of different training configurations and evaluate the eff
    After training, you can find the logs in the `logs/` directory. Each training session will generate a log file containing performance metrics.
 
 You can modify the lead index (last argument) to experiment with different leads. The results will be saved in the `new_model/` directory.
-Note: You Need to use the same seed and split for the teacher and student, but this can be changed in `team_code.py`
+Note: You Need to use the same seed and split for the teacher and student, but this can be changed in `team_code.py` (Sorry, this is logic is poorly coded)
 
 
 ## Knowledge Distillation and LAYER_KL_WEIGHTS
 
-In the knowledge distillation process, the `LAYER_KL_WEIGHTS` array determines the amount of KD to apply based on the layer. This array contains weights that control the contribution of each layer to the overall distillation loss. The weights are typically set to give more importance to the later layers of the network, as these layers often capture more abstract and task-specific features. You may want to refactor this to be controlled in `team_code.py` and try to mess with these values.
-
-
-
-Sorry, my code is quite messy.
-
+In the knowledge distillation process, the `LAYER_KL_WEIGHTS` array determines the amount of KD to apply based on the layer (it's multiplier on top of the Alpha value). This array contains weights that control the contribution of each layer to the overall distillation loss. The weights are typically set to give more importance to the later layers of the network, as these layers often capture more abstract and task-specific features. You may want to refactor this to be controlled in `team_code.py` and try to mess with these values.
 
 
 
